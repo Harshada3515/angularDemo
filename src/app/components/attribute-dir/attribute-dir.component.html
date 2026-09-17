@@ -1,0 +1,84 @@
+<div class="container-fluid mt-2 bg-secondary p-3">
+    <h3>Attribute Dir</h3>
+    <h5>ngClass ngStyle</h5>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <div [ngClass]="div1Class" class=" p-4 border border-dark border-2">Div 1</div>
+        </div>
+        <div class="col">
+            <div [ngClass]="isDiv2Active?'bg-success':'bg-danger'" class=" p-4 border border-dark border-2">Div 2</div>
+        </div>
+        <div class="col">
+            <div class="bg-secondary p-4 border border-dark border-2">Div 3</div>
+        </div>
+        <div class="col">
+            <div class="bg-info p-4 border border-dark border-2">Div 4</div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-danger me-2" (click)="addRed()"> Add Red</button>
+            <button class="btn btn-success ms-2" (click)="addGreen()">Add Green</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-warning" (click)="toggle()">Toggle</button>
+        </div>
+        <div class="col">
+            <input type="text" placeholder="Enter num1">
+            <input type="text" placeholder="Enter num2">
+        </div>
+        <div class="col">
+            <input type="checkbox" name="" id="">
+
+            <select class="form-select" name="" id="">
+                <option value="">Select City</option>
+                <option value="Kolhapur">Kolhapur</option>
+                <option value="Sangli">Sangli</option>
+                <option value="Satara">Satara</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt2">
+        <table class="table table-bordered border-dark table-striped table-hover text-center">
+            <thead>
+                <tr>
+                    <th rowspan="2">SrNo</th>
+                    <th rowspan="2">Roll</th>
+                    <th rowspan="2">Name</th>
+                    <th rowspan="2">City</th>
+                    <th rowspan="2">Active</th>
+                    <th colspan="2">Marks</th>
+                    <th rowspan="2">Per</th>
+                </tr>
+                <tr>
+                    <th>M1</th>
+                    <th>M2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students;let srNo=index">
+                    <td>{{srNo +1}}</td>
+                    <td>{{student.roll}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.city}}</td>
+                    <td [ngStyle]="{'background-color':student.isActive?'yellow':'red'}">
+                        {{student.isActive?'Active':'De-Active'}}
+                    </td>
+                    <td>{{student.m1}}</td>
+                    <td>{{student.m2}}</td>
+                    <td>
+                        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{'width':student.per+'%'}">{{student.per+'%'}}</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,94 @@
+<div class="container-fluid mt-2 bg-secondary p-3">
+    <h3>Structural Dir</h3>
+    <h5>*ngIf *ngFor</h5>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <div *ngIf="div1Visible" class="bg-primary p-4 border border-dark border-2">Div 1</div>
+        </div>
+        <div class="col">
+            <div *ngIf="div2Visible" class="bg-success p-4 border border-dark border-2">Div 2</div>
+        </div>
+        <div class="col">
+            <div *ngIf="num1===num2" class="bg-secondary p-4 border border-dark border-2">Div 3</div>
+        </div>
+        <div class="col">
+            <!-- *ngIf="isAccepted" -->
+            <div *ngIf="city==='Sangli'" class="bg-info p-4 border border-dark border-2">Div 4</div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-danger me-2" (click)="hide()"> Hide</button>
+            <button class="btn btn-success ms-2" (click)="show()">Show</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-warning" (click)="toggle()">Toggle</button>
+        </div>
+        <div class="col">
+            <input type="text" [(ngModel)]="num1" placeholder="Enter num1">
+            <input type="text" [(ngModel)]="num2" placeholder="Enter num2">
+        </div>
+        <div class="col">
+            <input type="checkbox" name="" id="" [(ngModel)]="isAccepted">
+
+            <select class="form-select" name="" id="" [(ngModel)]="city">
+                <option value="">Select City</option>
+                <option value="Kolhapur">Kolhapur</option>
+                <option value="Sangli">Sangli</option>
+                <option value="Satara">Satara</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div *ngFor="let state of states">{{state}}</div>
+        </div>
+        <div class="col">
+            <ul>
+                <li *ngFor="let state of states">{{state}}</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ol>
+                <li *ngFor="let state of states">{{state}}</li>
+            </ol>
+        </div>
+        <div class="col">
+            <select name="" id="" >
+                <option value="">Select State</option>
+                <option *ngFor="let state of states" [value]="state">{{state}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt2">
+        <table class="table table-bordered border-dark table-striped table-hover text-center" >
+            <thead>
+                <tr>
+                    <th rowspan="2">SrNo</th>
+                    <th rowspan="2">Roll</th>
+                    <th rowspan="2">Name</th>
+                    <th rowspan="2">City</th>
+                    <th colspan="2">Marks</th>
+                </tr>
+                <tr>
+                    <th>M1</th>
+                    <th>M2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students;let srNo=index">
+                    <td>{{srNo +1}}</td>
+                    <td>{{student.roll}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.city}}</td>
+                    <td>{{student.m1}}</td>
+                    <td>{{student.m2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
