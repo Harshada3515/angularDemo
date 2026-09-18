@@ -1,0 +1,80 @@
+<div class="container-fluid mt-2 bg-secondary p-3">
+    <h3>Default and Custome pipe</h3>
+    <h5></h5>
+</div>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            Before pipe-{{name}}
+            <br>
+            After pipe-{{name | uppercase}}
+        </div>
+        <div class="col">
+            Before pipe-{{fname}}
+            <br>
+            After pipe-{{fname | lowercase}}
+        </div>
+        <div class="col">
+            Before pipe-{{sentance}}
+            <br>
+            After pipe-{{sentance | titlecase}}
+        </div>
+        <div class="col">
+            Before pipe-{{price}}
+            <br>
+            After pipe-{{price|currency:'INR'}}
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            Before pipe-{{currentDate}}
+            <br>
+            <!-- After pipe-{{currentDate | date}} -->
+            <!-- After pipe-{{currentDate | date:'longDate'}} -->
+            <!-- After pipe-{{currentDate | date:'shortTime'}} -->
+            <!-- After pipe-{{currentDate | date:'longTime'}} -->
+            <!-- After pipe-{{currentDate | date:'dd/MM/yy'}} -->
+            After pipe-{{currentDate | date:'dd-MMM-yyyy'}}
+        </div>
+        <div class="col">
+            Before pipe-{{price}}
+            <br>
+            After pipe-{{price | number:'1.2-2' }}
+        </div>
+        <div class="col">
+            Before pipe-{{student}}
+            <br>
+            After pipe- {{student | json}}
+        </div>
+        <div class="col">
+            Before pipe-{{per}}
+            <br>
+            After pipe-{{per|percent:'1.2-2'}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            Before pipe-{{student.city}}
+            <br>
+            After pipe-{{student.city| na}}
+        </div>
+        <div class="col">
+            Before pipe-{{mobileNo}}
+            <br>
+            After pipe-{{mobileNo | maskMobile}}
+        </div>
+        <div class="col">
+            Before pipe-{{mobileNo}}
+            <br>
+            After pipe-{{mobileNo | slice:0:3}}
+        </div>
+        <div class="col">
+            <!-- Before pipe- {{name}}
+            <br>
+            After pipe-{{name | initial}} -->
+             Before pipe- {{fullName}}
+            <br>
+            After pipe-{{fullName | initial}}
+        </div>
+    </div>
+</div>

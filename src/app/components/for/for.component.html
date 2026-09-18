@@ -1,0 +1,73 @@
+<div class="container-fluid mt-2 bg-secondary p-3">
+    <h3>Control Flow</h3>
+    <h5>For</h5>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            @for (item of states; track $index) {
+                <div>{{item}}</div>
+            }
+        </div>
+        <div class="col">
+            <ul>
+                @for (item of states; track $index) {
+                    <li>{{item}}</li>
+                }
+            </ul>
+        </div>
+        <div class="col">
+             <ol>
+                @for (item of states; track $index) {
+                    <li>{{item}}</li>
+                }
+            </ol>
+        </div>
+        <div class="col">
+            <select name="" id="">
+                <option value="">Please Select State</option>
+                @for (item of states; track $index) {
+                    <option value="{{$index}}">{{item}}</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+             <select name="" id="" multiple class="form-select">
+                <option value="">Please Select State</option>
+                @for (item of students; track $index) {
+                    <option value="{{$index}}">{{item.name}}-{{item.city}}</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt2">
+        <table class="table table-bordered border-dark table-striped table-hover text-center" >
+            <thead>
+                <tr>
+                    <th rowspan="2">SrNo</th>
+                    <th rowspan="2">Roll</th>
+                    <th rowspan="2">Name</th>
+                    <th rowspan="2">City</th>
+                    <th colspan="2">Marks</th>
+                </tr>
+                <tr>
+                    <th>M1</th>
+                    <th>M2</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (student of students; track $index) {
+                <tr >
+                    <td>{{$index +1}}</td>
+                    <td>{{student.roll}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.city}}</td>
+                    <td>{{student.m1}}</td>
+                    <td>{{student.m2}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
