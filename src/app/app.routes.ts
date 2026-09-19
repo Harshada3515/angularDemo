@@ -6,6 +6,8 @@ import { AttributeDirComponent } from './components/attribute-dir/attribute-dir.
 import { IfComponent } from './components/if/if.component';
 import { ForComponent } from './components/for/for.component';
 import { PipeExComponent } from './components/pipe-ex/pipe-ex.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'student',pathMatch:'full'},
@@ -15,6 +17,8 @@ export const routes: Routes = [
     {path:'attributeDir',component:AttributeDirComponent},
     {path:'if',component:IfComponent},
     {path:'for',component:ForComponent},
-    {path:'pipe',component:PipeExComponent}
+    {path:'pipe',component:PipeExComponent},
+    {path:'template',component:TemplateFormComponent},
+    {path:'reactive',component:ReactiveFormComponent}
 
 ];

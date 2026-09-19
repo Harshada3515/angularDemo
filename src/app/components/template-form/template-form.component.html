@@ -1,0 +1,95 @@
+<div class="container-fluid mt-2 bg-secondary p-3">
+    <h3>Template Form</h3>
+    <h5>ngModel</h5>
+</div>
+<div class="conatiner mt-2">
+    <form class="row g-3 mb-4" #studentForm="ngForm">
+        <div class="col-6">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" #fname="ngModel" [(ngModel)]="student.fname" name="fname" id="fname" class="form-control" placeholder="John" required minlength="2">
+           @if (fname.touched || fname.dirty) {
+            <div class="text-danger">
+                <span *ngIf="fname.errors?.['required']">This is required</span>
+                <span *ngIf="fname.errors?.['minlength']">Minimum 2 char required</span>
+            </div>
+           }
+
+        </div>
+        <div class="col-6">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" [(ngModel)]="student.lname" name="lname" id="lname" class="form-control" placeholder="Cena" required minlength="4">
+        </div>
+        <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" [(ngModel)]="student.address" name="address" class="form-control" id="address" placeholder="1234 Main St">
+        </div>
+        <div class="col-3">
+            <label for="mobile" class="form-label">Mobile</label>
+            <input type="text" #mobile="ngModel" [(ngModel)]="student.mobile" name="mobile" id="mobile" class="form-control" placeholder="+91 9011293700" pattern="[7-9]{1}[0-9]{9}">
+            @if((mobile.touched|| mobile.dirty) && mobile.errors?.['pattern']){
+                <div class="text-danger">
+                    <span>Invalid mob no</span>
+                </div>
+            }
+        </div>
+        <div class="col-2">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" #age="ngModel" [(ngModel)]="student.age" name="age" id="age" class="form-control" placeholder="" min="18" max="60">
+            @if((age.touched|| age.dirty) ){
+            <div class="text-danger">
+                <span *ngIf="age.errors?.['min']">Invalid age</span>
+                <span *ngIf="age.errors?.['max']">Invalid age</span>
+            </div>
+            }
+        </div>
+        <div class="col-7">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" #email="ngModel" [(ngModel)]="student.email" name="email" id="email" class="form-control" placeholder="abc@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            @if((email.touched|| email.dirty) && email.errors?.['pattern']){
+            <div class="text-danger">
+                <span>Invalid email</span>
+            </div>
+            }
+        </div>
+        <div class="col-4">
+            <input type="radio" #gender="ngModel" [(ngModel)]="student.gender" name="gender" value="Male" id="male"  required class="form-check-input mx-2">
+            <label for="male" class="form-check-label">Male</label>
+            <input type="radio"  [(ngModel)]="student.gender" name="gender" value="Female" id="female" required class="mx-2 form-check-input">
+            <label for="female" class="form-check-label">Female</label> 
+            @if( gender.errors?.['required']){
+            <div class="text-danger">
+                <span>please select gender</span>
+            </div>
+            }
+        </div>
+        <div class="col-4">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" [(ngModel)]="student.username" name="username" id="username" class="form-control" placeholder="">
+        </div>
+        <div class="col-4">
+            <label for="password" class="form-label">Password  <small>(8 to 12 characters)</small></label>
+            <input type="password" #password="ngModel" [(ngModel)]="student.password" name="password" id="password" class="form-control" placeholder="" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$">
+            @if((password.touched|| password.dirty) && password.errors?.['pattern']){
+            <div class="text-danger">
+                Password must contain:
+                <ul>
+                    <li>At least one (A-Z), (a-z), (0-9), (!&#64;#$%^&amp;*_=+-)</li>
+                </ul>
+            </div>
+            }
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="student.isAcceptTerms" name="isAcceptTerms" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Terms & Condition
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" [disabled]="studentForm.invalid" class="btn btn-primary" (click)="signUp()">Sign Up</button>
+            <button type="reset"  class="btn btn-secondary ms-3" (click)="resetForm(studentForm)">Reset</button>
+
+        </div>
+    </form>
+</div>
