@@ -8,6 +8,7 @@ import { ForComponent } from './components/for/for.component';
 import { PipeExComponent } from './components/pipe-ex/pipe-ex.component';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { ProductComponent } from './components/product/product.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'student',pathMatch:'full'},
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path:'for',component:ForComponent},
     {path:'pipe',component:PipeExComponent},
     {path:'template',component:TemplateFormComponent},
-    {path:'reactive',component:ReactiveFormComponent}
+    {path:'reactive',component:ReactiveFormComponent},
+    {path:'product',component:ProductComponent}
 
 ];
