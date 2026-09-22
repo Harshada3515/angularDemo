@@ -1,0 +1,46 @@
+<!-- <p>get-api works!</p>
+<p>{{userList|json}}</p> -->
+<div class="row">
+    <table class="table">
+        <thead>
+            <th>Sr</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Company</th>
+        </thead>
+        <tbody>
+            @if(isLoading){
+                <tr class="placeholder-glow">
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                    <td class="placeholder"></td>
+                </tr>
+            }
+            @else {
+            @for(user of userList; track $index){
+              
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.address.street}}-{{user.address.city}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.website}}</td>
+                        <td>{{user.company.name}}</td>
+                    </tr>
+                }             
+                
+            }
+        </tbody>
+    </table>
+</div>

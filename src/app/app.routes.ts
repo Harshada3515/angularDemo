@@ -9,6 +9,7 @@ import { PipeExComponent } from './components/pipe-ex/pipe-ex.component';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { ProductComponent } from './components/product/product.component';
+import { GetApiComponent } from './components/get-api/get-api.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'student',pathMatch:'full'},
@@ -21,6 +22,7 @@ export const routes: Routes = [
     {path:'pipe',component:PipeExComponent},
     {path:'template',component:TemplateFormComponent},
     {path:'reactive',component:ReactiveFormComponent},
-    {path:'product',component:ProductComponent}
+    {path:'product',component:ProductComponent},
+    {path:'getApi',component:GetApiComponent}
 
 ];

@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -27,23 +28,23 @@ export class ReactiveFormComponent {
 
   // fbb=inject(FormBuilder)
 
-  constructor(private fb:FormBuilder){
-
-    this.studentForm = this.fb.group({
-      fname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
-      lname: new FormControl(''),
-      address: new FormControl(''),
-      mobile: new FormControl('', [Validators.pattern('[7-9]{1}[0-9]{9}')]),
-      email: new FormControl(''),
-      age: new FormControl(''),
-      gender: new FormControl(''),
-      username: new FormControl(''),
-      password: new FormControl(''),
-      isAcceptTerms: new FormControl(''),
-    });
+  constructor(private fb:FormBuilder,private apiService:ApiServiceService){
+     this.studentForm = apiService.studentForm;
+    // this.studentForm = this.fb.group({
+    //   fname: new FormControl('', [
+    //     Validators.required,
+    //     Validators.minLength(2),
+    //   ]),
+    //   lname: new FormControl(''),
+    //   address: new FormControl(''),
+    //   mobile: new FormControl('', [Validators.pattern('[7-9]{1}[0-9]{9}')]),
+    //   email: new FormControl(''),
+    //   age: new FormControl(''),
+    //   gender: new FormControl(''),
+    //   username: new FormControl(''),
+    //   password: new FormControl(''),
+    //   isAcceptTerms: new FormControl(''),
+    // });
   }
 
   signUp() {
