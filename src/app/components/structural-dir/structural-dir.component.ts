@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ComHeaderComponent } from '../../Reusable/com-header/com-header.component';
 
 @Component({
   selector: 'app-structural-dir',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, ComHeaderComponent],
   templateUrl: './structural-dir.component.html',
   styleUrl: './structural-dir.component.css'
 })

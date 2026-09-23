@@ -1,5 +1,24 @@
 <!-- <p>get-api works!</p>
 <p>{{userList|json}}</p> -->
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-3">
+            <ng-template *ngIf="isLoggedIn">
+                <p>Welcome USER</p>
+            </ng-template>
+        </div>
+        <div class="col-3">
+            <div *ngIf="isLoggedIn;else NotLoggedIn">
+                <h2>Welcome User</h2>
+            </div>
+            
+            <ng-template #NotLoggedIn>
+                <h2>Please Login</h2>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <table class="table">
         <thead>
@@ -13,16 +32,33 @@
             <th>Company</th>
         </thead>
         <tbody>
-            @if(isLoading){
+                <ng-container *ngIf="isLoading">
+                    <tr>
+                        <td class="text-center" colspan="8">Loading Data......</td>
+                    </tr>
+                </ng-container>
+
+                <ng-container *ngIf="!isLoading">
+                    @for(user of userList; track $index){                    
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.address.street}}-{{user.address.city}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.website}}</td>
+                        <td>{{user.company.name}}</td>
+                    </tr>
+                    }
+                </ng-container>
+
+            
+                
+            
+            <!-- @if(isLoading){
                 <tr class="placeholder-glow">
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
-                    <td class="placeholder"></td>
+                    <td class="text-center" colspan="8">Loading Data......</td>
                 </tr>
             }
             @else {
@@ -40,7 +76,7 @@
                     </tr>
                 }             
                 
-            }
+            } -->
         </tbody>
     </table>
 </div>

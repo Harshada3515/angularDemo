@@ -87,8 +87,10 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" [disabled]="studentForm.invalid" class="btn btn-primary" (click)="signUp()">Sign Up</button>
-            <button type="reset"  class="btn btn-secondary ms-3" (click)="resetForm(studentForm)">Reset</button>
+            <app-custome-btn [btnClass]="'btn btn-primary'" [isActive]="studentForm.invalid!" [btnName]="'Sign Up'" (btnClick)="signUp($event)"></app-custome-btn>
+            <!-- <button type="submit" [disabled]="studentForm.invalid" class="btn btn-primary" (click)="signUp()">Sign Up</button> -->
+            <!-- <button type="reset"  class="btn btn-secondary ms-3" (click)="resetForm(studentForm)">Reset</button> -->
+             <app-custome-btn [type]="'reset'" [btnClass]="'btn btn-secondary ms-2'" [btnName]="'Reset'"></app-custome-btn>
 
         </div>
     </form>

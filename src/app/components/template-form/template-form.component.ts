@@ -2,11 +2,12 @@ import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { CustomeBtnComponent } from '../../Reusable/custome-btn/custome-btn.component';
 
 @Component({
   selector: 'app-template-form',
   standalone: true,
-  imports: [FormsModule, JsonPipe, CommonModule],
+  imports: [FormsModule, JsonPipe, CommonModule, CustomeBtnComponent],
   templateUrl: './template-form.component.html',
   styleUrl: './template-form.component.css',
 })
@@ -24,8 +25,9 @@ export class TemplateFormComponent {
     isAcceptTerms: '',
   };
 
-  signUp() {
-    debugger;
+  signUp(message:string) {
+
+    console.log(message);
     Swal.fire({
       title: 'Form submitted!!!',
       icon: 'success',

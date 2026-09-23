@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ComHeaderComponent } from '../../Reusable/com-header/com-header.component';
 
 @Component({
   selector: 'app-for',
   standalone: true,
-  imports: [],
+  imports: [ComHeaderComponent],
   templateUrl: './for.component.html',
   styleUrl: './for.component.css'
 })

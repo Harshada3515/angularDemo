@@ -1,4 +1,4 @@
-import { JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { IUser } from '../../models/models';
 import { ApiServiceService } from '../../services/api-service.service';
@@ -6,7 +6,7 @@ import { ApiServiceService } from '../../services/api-service.service';
 @Component({
   selector: 'app-get-api',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [JsonPipe,CommonModule],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css',
 })
@@ -14,6 +14,7 @@ export class GetApiComponent {
   // userList:any;
   userList: IUser[] = [];
   isLoading: boolean = true;
+  isLoggedIn:boolean=true;
 
   constructor(private apiService:ApiServiceService) {
     this.getAllUsers();
@@ -43,8 +44,10 @@ export class GetApiComponent {
   getAllUsers(){
     this.apiService.getAllUsers().subscribe({
          next:(res:IUser[])=>{
-        this.userList=res;
-        this.isLoading=false
+          setTimeout(() => {
+             this.userList = res;             
+            this.isLoading = false;
+          }, 3000);
         },
         error:(err)=>{
           console.error(err)

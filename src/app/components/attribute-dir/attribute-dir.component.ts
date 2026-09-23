@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ComHeaderComponent } from '../../Reusable/com-header/com-header.component';
 
 @Component({
   selector: 'app-attribute-dir',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ComHeaderComponent],
   templateUrl: './attribute-dir.component.html',
   styleUrl: './attribute-dir.component.css'
 })
